@@ -3,7 +3,7 @@ describe("Current Weather:", function() {
 	describe("Weather By City (Fahrenheit):", function() {
 
 		var weather = new CurrentWeather();
-		var city = "Bangalore";
+		var city = "Bengaluru";
 		var unit = "imperial";
 		var longitude = 77.6;
 		var latitude =  12.98;
@@ -34,7 +34,7 @@ describe("Current Weather:", function() {
 		var weather = new CurrentWeather();
 		var city = "xxxxxx";
 		var unit = "imperial";
-		var errorMsg = "Error: Not found city";
+		var errorMsg = "city not found";
 
 		weather.getWeather(city, unit);
 
@@ -81,7 +81,7 @@ describe("Current Weather:", function() {
 
 		var weather = new CurrentWeather();
 		var cityId = 1111111;
-		var errorMsg = "Error: Not found city";
+		var errorMsg = "city not found";
 
 		weather.getWeather(cityId);
 
@@ -97,8 +97,8 @@ describe("Current Weather:", function() {
 		var weather = new CurrentWeather();
 		var zipcode = 98105;
 		var city = "Seattle";
-		var longitude = -122.33;
-		var latitude =  47.61;
+		var longitude = -122.3;
+		var latitude =  47.66;
 		var kelvinRegExp = /\d{1,3}.\d{0,3}/;  // Ex. 128
 
 		weather.getWeatherByZipcode(zipcode);
@@ -127,7 +127,7 @@ describe("Current Weather:", function() {
 
 		var weather = new CurrentWeather();
 		var zipcode = 99999999999;
-		var errorMsg = "Error: Not found city";
+		var errorMsg = "city not found";
 
 		weather.getWeatherByZipcode(zipcode);
 
@@ -171,9 +171,9 @@ describe("Current Weather:", function() {
 	describe("Bogus Geographic Coordinates:", function() {
 
 		var weather = new CurrentWeather();
-		var longitude = 1234;
-		var latitude =  1234;
-		var errorMsg = "Error: Not found city";
+		var longitude = 1234.32;
+		var latitude =  1234.32;
+		var errorMsg = "city not found";
 
 		weather.getWeatherByGeoCoord(latitude, longitude);
 
@@ -233,7 +233,7 @@ describe("Current Weather:", function() {
 
 			// Minumum number of cities is 0 what happens if we set count to -1
 			it("should throw an exception if city count is less than zero", function() {
-				expect(weather.weatherData.cod).toEqual("500");
+				expect(weather.weatherData.cod).toEqual("400");
 			});
 		});
 	});
@@ -243,8 +243,8 @@ describe("Current Weather:", function() {
 
 		var weather = new CurrentWeather();
 		var boundaryBox = "12,32,15,37,10"; // [lon-left,lat-bottom,lon-right,lat-top,zoom]
-		var firstCity = "Yafran";
-		var lastCity = "Rosolini";
+		var firstCity = "Birkirkara";
+		var lastCity = "Ragusa";
 		var cityCount = 15;
 		var cityList = {};
 
